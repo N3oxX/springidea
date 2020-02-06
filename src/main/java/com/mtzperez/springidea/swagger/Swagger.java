@@ -1,4 +1,4 @@
-package com.mtzperez.springidea;
+package com.mtzperez.springidea.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

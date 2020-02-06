@@ -1,4 +1,4 @@
-package com.mtzperez.springidea;
+package com.mtzperez.springidea.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
@@ -12,14 +12,14 @@ import javax.persistence.Id;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Coche {
+public class Car {
     @Id
     @GeneratedValue
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Integer id;
     private String name;
 
-    public Coche(String name) {
+    public Car(String name) {
         this.name = name;
     }
 }
