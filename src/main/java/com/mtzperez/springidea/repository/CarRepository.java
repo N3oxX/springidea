@@ -1,6 +1,6 @@
 package com.mtzperez.springidea.repository;
 
-import com.mtzperez.springidea.model.Car;
+import com.mtzperez.springidea.model.entity.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

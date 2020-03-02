@@ -55,6 +55,11 @@
 	<dependencies>
 
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+		</dependency>
+
 		<!-- JUNIT -->
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>

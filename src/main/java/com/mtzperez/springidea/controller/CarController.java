@@ -1,6 +1,6 @@
 package com.mtzperez.springidea.controller;
 
-import com.mtzperez.springidea.model.Car;
+import com.mtzperez.springidea.model.dto.CarDto;
 import com.mtzperez.springidea.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +21,7 @@ public class CarController {
     private CarService carService;
 
     @GetMapping
-    public List<Car> getAll() {
+    public List<CarDto> getAll() {
         return carService.getCars();
     }
 
@@ -35,7 +35,7 @@ public class CarController {
     private String nameCar;
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    public Car create(@Valid @RequestBody Car car) {
+    public CarDto create(@Valid @RequestBody CarDto car) {
         car.name = nameCar;
         return carService.createCar(car);
     }
