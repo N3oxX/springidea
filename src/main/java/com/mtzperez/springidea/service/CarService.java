@@ -23,7 +23,6 @@ public class CarService {
     public CarDto createCar(CarDto carDto) {
        Car car = new Car(carDto.name);
        carRepository.save(car);
-       noseke.com();
        return new CarDto(car.name);
     }
 
