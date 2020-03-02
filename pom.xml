@@ -55,12 +55,6 @@
 	<dependencies>
 
 
-		<!-- Memory database -->
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-		</dependency>
-
 		<!-- JUNIT -->
 		<!-- https://mvnrepository.com/artifact/junit/junit -->
 		<dependency>
