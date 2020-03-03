@@ -21,59 +21,9 @@ public class CarService {
     }
 
     public CarDto createCar(CarDto carDto) {
-        Object i = null;
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
-        if(i == null){
-            i.toString().substring(-10,2);
-        }
        Car car = new Car(carDto.name);
        carRepository.save(car);
        return new CarDto(car.name);
     }
-
 
 }
