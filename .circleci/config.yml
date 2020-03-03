@@ -1,69 +1,24 @@
-#jobs:
-#  commit:
-#    docker:
-#      - image: 'circleci/openjdk:11-jdk'
-#    steps:
-#      - checkout
-#      - run: mvn package
-#      - sonarcloud/scan_with_maven
-#orbs:
-#  sonarcloud: extendaretail/sonarcloud@0.0.2
-#version: 2.1
-#workflows:
-#  main:
-#    jobs:
-#      - commit:
-#          context: SonarCloud
-#      - sonarcloud/check_quality_gate:
-#          context: SonarCloud
-#          requires:
-#            - commit
-
-#analysis and gate
-#orbs:
-#  sonarcloud: extendaretail/sonarcloud@0.0.2
-#version: 2.1
-#jobs:
-#  build:
-#    docker:
-#      - image: 'circleci/openjdk:11-jdk'
-#    steps:
-#      - checkout
-#      - run:
-#          name: Analyze on SonarCloud
-#          command: mvn verify sonar:sonar
-#      - sonarcloud/scan_with_maven
-#
-#workflows:
-#  main:
-#    jobs:
-#      - build:
-#          context: SonarCloud
-#      - sonarcloud/check_quality_gate:
-#          context: SonarCloud
-#          requires:
-#            - build
 version: 2.1
 orbs:
   newman: postman/newman@0.0.2
 jobs:
-  newman-collection-run:
-    executor: newman/postman-newman-docker
-    steps:
-      - checkout
-      - newman/newman-run:
-          collection: ./idea_postman.postman_collection.json
+#  newman-collection-run:
+#    executor: newman/postman-newman-docker
+#    steps:
+#      - checkout
+#      - newman/newman-run:
+#          collection: ./idea_postman.postman_collection.json
   build:
     docker:
       - image: 'circleci/openjdk:11-jdk'
     steps:
       - checkout
-      - run:
-          name: Analyze on SonarCloud
-          command: mvn verify sonar:sonar
+#      - run:
+#          name: Analyze on SonarCloud
+#          command: mvn verify sonar:sonar
 workflows:
   main:
     jobs:
       - build:
           context: SonarCloud
-      - newman-collection-run
+#      - newman-collection-run
