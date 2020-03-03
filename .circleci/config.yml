@@ -7,7 +7,7 @@ jobs:
       - run: mvn package
       - sonarcloud/scan_with_maven
 orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.1
+  sonarcloud: extendaretail/sonarcloud@0.0.2
 version: 2.1
 workflows:
   main:
