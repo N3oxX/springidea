@@ -1,20 +1,35 @@
+#jobs:
+#  commit:
+#    docker:
+#      - image: 'circleci/openjdk:11-jdk'
+#    steps:
+#      - checkout
+#      - run: mvn package
+#      - sonarcloud/scan_with_maven
+#orbs:
+#  sonarcloud: extendaretail/sonarcloud@0.0.2
+#version: 2.1
+#workflows:
+#  main:
+#    jobs:
+#      - commit:
+#          context: SonarCloud
+#      - sonarcloud/check_quality_gate:
+#          context: SonarCloud
+#          requires:
+#            - commit
 jobs:
-  commit:
+  build:
     docker:
-      - image: 'circleci/openjdk:11-jdk'
+      - image: 'node:latest'
     steps:
       - checkout
-      - run: mvn package
-      - sonarcloud/scan_with_maven
+      - sonarcloud/scan
 orbs:
-  sonarcloud: extendaretail/sonarcloud@0.0.2
+  sonarcloud: sonarsource/sonarcloud@1.0.0
 version: 2.1
 workflows:
   main:
     jobs:
-      - commit:
-          context: SonarCloud
-      - sonarcloud/check_quality_gate:
-          context: SonarCloud
-          requires:
-            - commit
+      - build:
+          context: sonarcloud
