@@ -25,12 +25,6 @@ public class CarController {
         return carService.getCars();
     }
 
-    @GetMapping("/test")
-    public @ResponseBody
-    ResponseEntity customEndPoint(){
-        return  new ResponseEntity<>("REST end point", HttpStatus.OK);
-    }
-
     @Value( "${nameCar:coche}" )
     private String nameCar;
     @PostMapping
