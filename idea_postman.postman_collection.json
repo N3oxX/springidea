@@ -41,14 +41,16 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/cars",
-					"protocol": "http",
+					"raw": "https://springidea.herokuapp.com/cars/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"springidea",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
-						"cars"
+						"cars",
+						""
 					]
 				}
 			},
@@ -74,14 +76,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8080/cars",
-					"protocol": "http",
+					"raw": "https://springidea.herokuapp.com/cars/",
+					"protocol": "https",
 					"host": [
-						"localhost"
+						"springidea",
+						"herokuapp",
+						"com"
 					],
-					"port": "8080",
 					"path": [
-						"cars"
+						"cars",
+						""
 					]
 				}
 			},
