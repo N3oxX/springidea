@@ -52,7 +52,7 @@ jobs:
     steps:
       - checkout
       - newman/newman-run:
-          collection: ./collection.json
+          collection: ./idea_postman.postman_collection.json
   build:
     docker:
       - image: 'circleci/openjdk:11-jdk'
