@@ -4,7 +4,7 @@ jobs:
       - image: 'circleci/openjdk:11-jdk'
     steps:
       - checkout
-      - run: mvn verify sonar:sonar
+      - run: mvn sonar:sonar
       - sonarcloud/scan_with_maven
 orbs:
   sonarcloud: extendaretail/sonarcloud@0.0.2
