@@ -47,6 +47,7 @@
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 
+
 	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
