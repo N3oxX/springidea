@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "a79b25e3-750f-45f8-8f4e-a583ab2bf636",
+		"name": "Idea Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "cars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "45a0f030-4252-4f61-a274-2a860d1553f7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Coche\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://springidea.herokuapp.com/cars/",
+					"protocol": "https",
+					"host": [
+						"springidea",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"cars",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cars",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "014c5b73-96d3-491a-bb6e-eac46f7a31a9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://springidea.herokuapp.com/cars/",
+					"protocol": "https",
+					"host": [
+						"springidea",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"cars",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
