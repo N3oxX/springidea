@@ -1,17 +1,20 @@
-version: 2.1
-
-jobs:
-  build:
+job:
+  commit:
     docker:
-      - image: 'circleci/openjdk:11-jdk'
+      - image: 'openjdk:11'
     steps:
       - checkout
-      - run:
-          name: Analyze on SonarCloud
-          command: mvn verify sonar:sonar
-
+      - run: mvn package
+      - sonarcloud/scan_with_maven
+orbs:
+  sonarcloud: extendaretail/sonarcloud@1.0.0
+version: 2.1
 workflows:
   main:
     jobs:
-      - build:
-          context: SonarCloud
+      - commit:
+          context: sonarcloud
+      - sonarcloud/check_quality_gate:
+          context: sonarcloud
+          requires:
+            - commit
