@@ -11,9 +11,6 @@ jobs:
   build:
     docker:
       - image: 'circleci/openjdk:11-jdk'
-    branches:
-      only:
-        - master
     steps:
       - checkout
 #      - run:
@@ -23,5 +20,8 @@ workflows:
   main:
     jobs:
       - build:
+          filters:
+            branches:
+              only: master
           context: SonarCloud
 #      - newman-collection-run
