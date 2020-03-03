@@ -18,18 +18,20 @@
 #          context: SonarCloud
 #          requires:
 #            - commit
+version: 2.1
+
 jobs:
   build:
     docker:
-      - image: 'node:latest'
+      - image: 'circleci/openjdk:11-jdk'
     steps:
       - checkout
-      - sonarcloud/scan
-orbs:
-  sonarcloud: sonarsource/sonarcloud@1.0.0
-version: 2.1
+      - run:
+          name: Analyze on SonarCloud
+          command: mvn verify sonar:sonar
+
 workflows:
   main:
     jobs:
       - build:
-          context: sonarcloud
+          context: SonarCloud
