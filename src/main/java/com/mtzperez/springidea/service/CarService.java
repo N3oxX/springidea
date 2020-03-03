@@ -25,5 +25,4 @@ public class CarService {
        carRepository.save(car);
        return new CarDto(car.name);
     }
-
 }
