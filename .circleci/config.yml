@@ -50,7 +50,6 @@ jobs:
   newman-collection-run:
     executor: newman/postman-newman-docker
     steps:
-      - checkout
       - newman/newman-run:
           collection: ./idea_postman.postman_collection.json
   build:
@@ -58,6 +57,7 @@ jobs:
       - image: 'circleci/openjdk:11-jdk'
     steps:
       - checkout
+      - newman-collection-run
 #      - run:
 #          name: Analyze on SonarCloud
 #          command: mvn verify sonar:sonar
@@ -67,4 +67,3 @@ workflows:
     jobs:
       - build:
           context: SonarCloud
-      - newman-collection-run
