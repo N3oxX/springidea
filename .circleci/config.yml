@@ -18,9 +18,33 @@
 #          context: SonarCloud
 #          requires:
 #            - commit
-orbs:
-  sonarcloud: extendaretail/sonarcloud@0.0.2
+
+#analysis and gate
+#orbs:
+#  sonarcloud: extendaretail/sonarcloud@0.0.2
+#version: 2.1
+#jobs:
+#  build:
+#    docker:
+#      - image: 'circleci/openjdk:11-jdk'
+#    steps:
+#      - checkout
+#      - run:
+#          name: Analyze on SonarCloud
+#          command: mvn verify sonar:sonar
+#      - sonarcloud/scan_with_maven
+#
+#workflows:
+#  main:
+#    jobs:
+#      - build:
+#          context: SonarCloud
+#      - sonarcloud/check_quality_gate:
+#          context: SonarCloud
+#          requires:
+#            - build
 version: 2.1
+
 jobs:
   build:
     docker:
@@ -30,14 +54,9 @@ jobs:
       - run:
           name: Analyze on SonarCloud
           command: mvn verify sonar:sonar
-      - sonarcloud/scan_with_maven
 
 workflows:
   main:
     jobs:
       - build:
           context: SonarCloud
-      - sonarcloud/check_quality_gate:
-          context: SonarCloud
-          requires:
-            - build
