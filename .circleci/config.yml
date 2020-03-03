@@ -13,8 +13,8 @@ workflows:
   main:
     jobs:
       - commit:
-          context: sonarcloud
+          context: SonarCloud
       - sonarcloud/check_quality_gate:
-          context: sonarcloud
+          context: SonarCloud
           requires:
             - commit
