@@ -35,7 +35,7 @@ public class CarServiceTest {
         cars.add(new Car());
         Mockito.when(carRepository.findAll()).thenReturn(cars);
         List<CarDto> carDtos = carService.getCars();
-        Assert.assertEquals(cars.size(), carDtos.size());
+        Assert.assertEquals(1, carDtos.size());
     }
 
     @Test public void createCarOk(){
