@@ -17,12 +17,12 @@ public class CarService {
     private CarRepository carRepository;
 
     public List<CarDto> getCars() {
-        return carRepository.findAll().stream().map(car -> new CarDto(car.name)).collect(Collectors.toList());
+        return carRepository.findAll().stream().map(car -> new CarDto(car.getName())).collect(Collectors.toList());
     }
 
     public CarDto createCar(CarDto carDto) {
        Car car = new Car(carDto.name);
        carRepository.save(car);
-       return new CarDto(car.name);
+       return new CarDto(car.getName());
     }
 }

@@ -18,7 +18,7 @@ public class Car {
     @GeneratedValue
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Integer id;
-    public String name;
+    private String name;
 
     public Car(String name) {
         this.name = name;
