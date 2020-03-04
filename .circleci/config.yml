@@ -1,22 +1,27 @@
 version: 2.1
+#dependecies
 orbs:
   newman: postman/newman@0.0.2
+#Jobs you want to run, each of them run in a different instance
 jobs:
   newman-collection-run:
     executor: newman/postman-newman-docker
     steps:
       - checkout
       - newman/newman-run:
+          #collection of postman you want to run
           collection: ./idea_postman.postman_collection.json
+          #enviroment variables of the postman collection
           environment: ./dev.postman_environment.json
   build:
     docker:
       - image: 'circleci/openjdk:11-jdk'
     steps:
       - checkout
-#      - run:
-#          name: Analyze on SonarCloud
-#          command: mvn verify sonar:sonar
+      - run:
+          name: Analyze on SonarCloud
+          command: mvn verify sonar:sonar
+#list of jobs you want to run
 workflows:
   main:
     jobs:
