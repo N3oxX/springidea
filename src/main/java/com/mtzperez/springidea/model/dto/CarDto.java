@@ -11,6 +11,7 @@ import javax.validation.constraints.Pattern;
 public class CarDto {
     @NotNull
     @NotBlank
+    @Getter
     @Pattern(regexp = "^[a-zA-Z ]*$")
     public String name;
 
