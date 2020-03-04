@@ -2,11 +2,11 @@ version: 2.1
 orbs:
   newman: postman/newman@0.0.2
 jobs:
-  newman-collection-run:
+  newman-collection-run-env-timeout:
     executor: newman/postman-newman-docker
     steps:
       - checkout
-      - newman-collection-run-env-timeout:
+      - newman/newman-run:
           collection: ./idea_postman.postman_collection.json
           environment: ./dev.postman_environment.json
           timeout: '5000'
