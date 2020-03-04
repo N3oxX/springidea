@@ -2,6 +2,8 @@ version: 2.1
 #dependecies
 orbs:
   newman: postman/newman@0.0.2
+  maven: circleci/maven@0.0.12
+  sonarcloud: sonarsource/sonarcloud@1.0.1
 #Jobs you want to run, each of them run in a different instance
 jobs:
   newman-collection-run:
@@ -18,6 +20,7 @@ jobs:
       - image: 'circleci/openjdk:11-jdk'
     steps:
       - checkout
+      - maven/test # checkout, build, test, and upload test results
       - run:
           name: Analyze on SonarCloud
           command: mvn verify sonar:sonar
