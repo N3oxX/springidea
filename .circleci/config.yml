@@ -1,15 +1,14 @@
 version: 2.1
 orbs:
-  newman: postman/newman@1.0.0
+  newman: postman/newman@0.0.2
 jobs:
-  newman-collection-run-env-timeout:
+  newman-collection-run:
     executor: newman/postman-newman-docker
     steps:
       - checkout
       - newman/newman-run:
           collection: ./idea_postman.postman_collection.json
           environment: ./dev.postman_environment.json
-          timeout: '5000'
   build:
     docker:
       - image: 'circleci/openjdk:11-jdk'
