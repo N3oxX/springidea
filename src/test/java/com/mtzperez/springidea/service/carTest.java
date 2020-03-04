@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest @RunWith(SpringRunner.class)
-public class CarServiceTest {
+public class carTest {
 
     @InjectMocks CarService carService;
     @Mock private  CarRepository carRepository;
@@ -27,7 +27,7 @@ public class CarServiceTest {
         MockitoAnnotations.initMocks(this);
     }
 
-    @Test
+    @org.junit.Test
     public void getAllCarsOk(){
         List<Car> cars = new ArrayList<>();
         cars.add(new Car());
@@ -35,10 +35,11 @@ public class CarServiceTest {
         cars.add(new Car());
         Mockito.when(carRepository.findAll()).thenReturn(cars);
         List<CarDto> carDtos = carService.getCars();
-        Assert.assertEquals(1, carDtos.size());
+        Assert.assertEquals(cars.size(), carDtos.size());
     }
 
-    @Test public void createCarOk(){
+    @org.junit.Test
+    public void createCarOk(){
         String name = "Ferrari";
         Car createdCar = new Car();
         createdCar.setName(name);
