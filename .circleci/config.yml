@@ -21,7 +21,7 @@ jobs:
       - run:
           name: Analyze on SonarCloud
           command: mvn verify sonar:sonar
-#list of jobs you want to run
+#list of jobs you want to run in circle ci
 workflows:
   main:
     jobs:
