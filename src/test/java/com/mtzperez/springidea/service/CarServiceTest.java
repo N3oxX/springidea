@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest @RunWith(SpringRunner.class)
-public class carTest {
+public class CarServiceTest {
 
     @InjectMocks CarService carService;
     @Mock private  CarRepository carRepository;
@@ -26,7 +26,6 @@ public class carTest {
     @BeforeEach public void setUp() {
         MockitoAnnotations.initMocks(this);
     }
-
     @org.junit.Test
     public void getAllCarsOk(){
         List<Car> cars = new ArrayList<>();

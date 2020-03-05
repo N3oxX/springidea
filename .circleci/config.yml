@@ -30,6 +30,6 @@ workflows:
       - build:
           context: SonarCloud
       - newman-collection-run:
-          filters:
+          filters: # run postman only in master with develop code
             branches:
               only: master
