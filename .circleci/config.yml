@@ -3,7 +3,6 @@ version: 2.1
 orbs:
   newman: postman/newman@0.0.2
   maven: circleci/maven@0.0.12
-  sonarcloud: sonarsource/sonarcloud@1.0.1
 #Jobs you want to run, each of them run in a different instance
 jobs:
   newman-collection-run:

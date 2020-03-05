@@ -58,6 +58,7 @@
 		<sonar.projectKey>N3oxX_springidea</sonar.projectKey>
 		<sonar.organization>n3oxx</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.login>9be9209e2ac5639dbd78dbc4349b9343efa47ec1</sonar.login>
 	</properties>
 
 	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
