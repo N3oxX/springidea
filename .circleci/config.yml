@@ -3,7 +3,7 @@ version: 2.1
 orbs:
   newman: postman/newman@0.0.2
   maven: circleci/maven@0.0.12
-  sonarcloud: sonarsource/sonarcloud@1.0.1
+  sonarcloud: extendaretail/sonarcloud@1.0.0
 #Jobs you want to run, each of them run in a different instance
 jobs:
   newman-collection-run:
@@ -20,16 +20,19 @@ jobs:
       - image: 'circleci/openjdk:11-jdk'
     steps:
       - checkout
-      - run:
-          name: Analyze on SonarCloud
-          command: mvn verify sonar:sonar
+      - run: mvn package
+      - sonarcloud/scan_with_maven
 #list of jobs you want to run in circle ci
 workflows:
   main:
     jobs:
       - maven/test # checkout, build, test, and upload test results
       - build:
-          context: SonarCloud
+          context: sonarcloud
+      - sonarcloud/check_quality_gate:
+          context: sonarcloud
+          requires:
+            - build
       - newman-collection-run:
           filters:
             branches:
