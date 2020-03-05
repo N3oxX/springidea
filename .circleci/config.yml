@@ -1,39 +1,20 @@
-version: 2.1
-#dependecies
-orbs:
-  newman: postman/newman@0.0.2
-  maven: circleci/maven@0.0.12
-  sonarcloud: extendaretail/sonarcloud@0.0.2
-#Jobs you want to run, each of them run in a different instance
-jobs:
-  newman-collection-run:
-    executor: newman/postman-newman-docker
-    steps:
-      - checkout
-      - newman/newman-run:
-          #collection of postman you want to run
-          collection: ./idea_postman.postman_collection.json
-          #enviroment variables of the postman collection
-          environment: ./dev.postman_environment.json
-  build:
+job:
+  commit:
     docker:
-      - image: 'circleci/openjdk:11-jdk'
+      - image: 'openjdk:11'
     steps:
       - checkout
       - run: mvn package
       - sonarcloud/scan_with_maven
-#list of jobs you want to run in circle ci
+orbs:
+  sonarcloud: extendaretail/sonarcloud@0.0.2
+version: 2.1
 workflows:
   main:
     jobs:
-      - maven/test # checkout, build, test, and upload test results
-      - build:
+      - commit:
           context: sonarcloud
       - sonarcloud/check_quality_gate:
           context: sonarcloud
           requires:
-            - build
-      - newman-collection-run:
-          filters:
-            branches:
-              only: master
+            - commit
