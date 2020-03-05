@@ -20,7 +20,7 @@ jobs:
       - image: 'circleci/openjdk:11-jdk'
     steps:
       - checkout
-      - run: mvn package
+      - run: mvn verify sonar:sonar
       - sonarcloud/scan_with_maven
 #list of jobs you want to run in circle ci
 workflows:
