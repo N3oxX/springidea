@@ -21,6 +21,25 @@
 			</resource>
 		</resources>
 		<plugins>
+
+
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.6.0.201210061924</version>
+				<configuration>
+					<destFile>${sonar.jacoco.reportPath}</destFile>
+					<append>true</append>
+				</configuration>
+				<executions>
+					<execution>
+						<id>agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 			<!-- Plugins -->
 			<!-- Spring Boot -->
 			<plugin>
@@ -60,6 +79,10 @@
 			<sonar.organization>n3oxx</sonar.organization>
 			<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 			<sonar.login>9be9209e2ac5639dbd78dbc4349b9343efa47ec1</sonar.login>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
+		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
+		<sonar.language>java</sonar.language>
 	</properties>
 
 	<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-parent -->
