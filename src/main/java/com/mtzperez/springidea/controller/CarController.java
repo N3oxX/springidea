@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("cars")
-@Profile("dev")
 public class CarController {
 
     @Autowired
