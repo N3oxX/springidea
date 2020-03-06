@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("cars")
-@Profile("dev")
 public class CarController {
 
     @Autowired
@@ -21,6 +20,7 @@ public class CarController {
 
 
     @GetMapping
+    @Profile("dev")
     public List<CarDto> getAll() {
         return carService.getCars();
     }
