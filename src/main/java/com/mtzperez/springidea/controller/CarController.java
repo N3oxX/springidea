@@ -19,6 +19,7 @@ public class CarController {
     private CarService carService;
 
     @GetMapping
+    @Profile("dev")
     public List<CarDto> getAll() {
         return carService.getCars();
     }
