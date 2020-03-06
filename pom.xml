@@ -142,6 +142,11 @@
 			</exclusions>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+		</dependency>
+
 		<!-- Database postgresql -->
 		<dependency>
 			<groupId>org.postgresql</groupId>
